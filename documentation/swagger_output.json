@@ -99,7 +99,7 @@
         }
       }
     },
-    "/clientes/{nome}": {
+    "/clientes/nome/{nome}": {
       "get": {
         "tags": [
           "Clientes"
