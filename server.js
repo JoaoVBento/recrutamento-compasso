@@ -4,9 +4,11 @@ const config = require("./config/config")
 
 const db = require("./config/db")
 
+const logger = require("./logs/logger")
+
 db.on("connected", () => {
     app.listen(config.server.port, config.server.hostname, () => {
-        console.log(`App listening on ${config.server.hostname} port: ${config.server.port}`)
+        logger.info(`App listening on ${config.server.hostname} port: ${config.server.port}`)
         app.emit("appStarted")
     })
 })

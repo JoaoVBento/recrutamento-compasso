@@ -1,0 +1,308 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "CompassAPI",
+    "description": "Documentação de rotas e requisições para a API do CompassAPI."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3030/"
+    },
+    {
+      "url": "https://localhost:3030/"
+    }
+  ],
+  "paths": {
+    "/cidades/{nome}": {
+      "get": {
+        "tags": [
+          "Cidades"
+        ],
+        "description": "<h3><b>Retorna as cidades que correspondam ao nome passado.</b></h3>",
+        "parameters": [
+          {
+            "name": "nome",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cidade encontrada."
+          },
+          "404": {
+            "description": "Nenhuma cidade corresponde ao nome passado."
+          }
+        }
+      }
+    },
+    "/cidades/estados/{estado}": {
+      "get": {
+        "tags": [
+          "Cidades"
+        ],
+        "description": "<h3><b>Retorna as cidades que correspondam ao estado passado.</b></h3>",
+        "parameters": [
+          {
+            "name": "estado",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cidade encontrada."
+          },
+          "404": {
+            "description": "Nenhuma cidade corresponde ao estado passado."
+          }
+        }
+      }
+    },
+    "/cidades": {
+      "post": {
+        "tags": [
+          "Cidades"
+        ],
+        "description": "<h3><b>Salva uma cidade na base de dados.</b></h3>",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Cidade criada."
+          },
+          "403": {
+            "description": "Cidade com nome e estado repetidos."
+          },
+          "422": {
+            "description": "Payload inválido."
+          },
+          "500": {
+            "description": "Erro interno."
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cidadePOST"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/clientes/{nome}": {
+      "get": {
+        "tags": [
+          "Clientes"
+        ],
+        "description": "<h3><b>Retorna um cliente que corresponda ao nome passado.</b></h3>",
+        "parameters": [
+          {
+            "name": "nome",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cliente encontrado."
+          },
+          "404": {
+            "description": "Nenhum Cliente corresponde ao nome passado."
+          }
+        }
+      }
+    },
+    "/clientes/{id}": {
+      "get": {
+        "tags": [
+          "Clientes"
+        ],
+        "description": "<h3><b>Retorna um cliente que corresponda ao id passado.</b></h3>",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cliente encontrado."
+          },
+          "404": {
+            "description": "Nenhum Cliente corresponde ao id passado."
+          },
+          "422": {
+            "description": "Id passado não é um uuid válido."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Clientes"
+        ],
+        "description": "<h3><b>Atualiza o nome de um cliente que corresponda ao id passado.</b></h3>",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cliente atualizado."
+          },
+          "404": {
+            "description": "Nenhum cliente corresponde ao id passado."
+          },
+          "422": {
+            "description": "id e/ou payload inválido."
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/clientePUT"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clientes"
+        ],
+        "description": "<h3><b>Deleta um cliente da base de dados.</b></h3>",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Cliente deletada."
+          },
+          "404": {
+            "description": "Nenhum cliente corresponde ao id passado."
+          },
+          "422": {
+            "description": "id passado não é um uuid válido."
+          }
+        }
+      }
+    },
+    "/clientes": {
+      "post": {
+        "tags": [
+          "Clientes"
+        ],
+        "description": "<h3><b>Salva um cliente na base de dados.</b></h3>",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Cliente criada."
+          },
+          "403": {
+            "description": "Cliente com nome repetido."
+          },
+          "422": {
+            "description": "Payload inválido."
+          },
+          "500": {
+            "description": "Erro interno."
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/clientePOST"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "clientePOST": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "example": "string"
+          },
+          "sexo": {
+            "type": "string",
+            "example": "string"
+          },
+          "dataNascimento": {
+            "type": "string",
+            "example": "date"
+          },
+          "idade": {
+            "type": "string",
+            "example": "int"
+          },
+          "cidade": {
+            "type": "string",
+            "example": "uuid"
+          }
+        }
+      },
+      "clientePUT": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "example": "string"
+          }
+        }
+      },
+      "cidadePOST": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "example": "string"
+          },
+          "estado": {
+            "type": "string",
+            "example": "string"
+          }
+        }
+      }
+    }
+  },
+  "sorter": "method",
+  "operationsSorter": "method"
+}

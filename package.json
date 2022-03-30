@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./server.js"
+    "dev": "nodemon ./server.js",
+    "test": "jest -i",
+    "docs": "node ./documentation/swagger.js"
   },
   "repository": {
     "type": "git",
@@ -22,13 +23,18 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-async-errors": "^3.1.1",
+    "express-winston": "^4.2.0",
     "mongoose": "^6.2.8",
-    "pino": "^7.9.2",
-    "pino-http": "^6.6.0",
+    "mongoose-dateonly": "^1.0.6",
+    "swagger-autogen": "^2.20.6",
+    "swagger-ui-express": "^4.3.0",
+    "uuidv4": "^6.2.13",
+    "winston": "^3.6.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
     "jest": "^27.5.1",
+    "jest-localstorage-mock": "^2.4.19",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.2"
   }

@@ -7,7 +7,7 @@ const CidadeSchema = new Schema({
     nome: String,
     estado: String
 }, {
-    timestamp: true
+    timestamps: true
 })
 
 const CidadeModel = mongoose.model('Cidade', CidadeSchema)
