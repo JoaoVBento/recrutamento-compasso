@@ -62,6 +62,8 @@ Para saber mais sobre [json-log-viewer](https://github.com/gistia/json-log-viewe
 -   Cadastrar cliente  
 Obs: para cadastrar o cliente, a sua `dataNascimento` deve estar no formato `MM-dd-yyyy` que é o padrão norte-americano de datas  
 Obs: para cadastrar o cliente, o seu nome deve ser completo, ou seja, ele não aceitará nomes únicos (apenas "joao", por exemplo), sendo obrigatório especificar seu sobrenome (Ex: "João Bento")  
+Obs: os possíveis valores para o campo `sexo` são: "masculino"; "feminino"  
+Obs: o campo `cidade` deve ser um `uuid` que referencie um documento da coleção "Cidades"
 -   Consultar cidade pelo nome
 -   Consultar cidade pelo estado
 -   Consultar cliente pelo nome
