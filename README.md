@@ -59,15 +59,15 @@ Para saber mais sobre [json-log-viewer](https://github.com/gistia/json-log-viewe
   
   
 -   Cadastrar cidade
--   Cadastrar cliente
-Obs: pata cadastrar o cliente, a sua `dataNascimento` deve estar no formato `MM-dd-yyyy` que é o padrão norte-americano de datas
-Obs: para cadastrar o cliente, o seu nome deve ser completo, ou seja, ele não aceitará nomes únicos (apenas "joao", por exemplo), sendo obrigatório especificar seu sobrenome (Ex: "João Bento")
+-   Cadastrar cliente  
+Obs: para cadastrar o cliente, a sua `dataNascimento` deve estar no formato `MM-dd-yyyy` que é o padrão norte-americano de datas  
+Obs: para cadastrar o cliente, o seu nome deve ser completo, ou seja, ele não aceitará nomes únicos (apenas "joao", por exemplo), sendo obrigatório especificar seu sobrenome (Ex: "João Bento")  
 -   Consultar cidade pelo nome
 -   Consultar cidade pelo estado
 -   Consultar cliente pelo nome
 -   Consultar cliente pelo Id
 -   Remover cliente
--   Alterar o nome do cliente
+-   Alterar o nome do cliente  
 Obs: a mesma regra do nome que se aplica à rota de cadastro de cliente se aplica a essa rota
   
 ##  Licença
